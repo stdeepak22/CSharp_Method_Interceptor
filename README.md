@@ -2,8 +2,14 @@
 
 This will let you know how we can intercept the method in C# classes. 
 
-We're using the approach of Remoting, and IMessageSink
+We're using the approach of Remoting, and IMessageSink.  
+I've created some file for you to be used readymade.
 
+[InterceptSink.cs](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor/other/InterceptSink.cs) derived from IMessageSink
+
+[InterceptProperty.cs](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor/other/InterceptProperty.cs) derived from IContextProperty and IContributeObjectSink
+
+and some interface, abstract class and attribute`
 
 **Log attribute**
 ```c#
