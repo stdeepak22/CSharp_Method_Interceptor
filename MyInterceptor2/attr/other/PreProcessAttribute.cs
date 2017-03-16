@@ -9,17 +9,21 @@ namespace MyInterceptor2.attr.other
     [AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property, AllowMultiple = true)]
     public class PreProcessAttribute : Attribute
     {
-        private IPreProcessor p;
-        public PreProcessAttribute(Type preProcessorType)
+        private List<IPreProcessor> preProcessors = new List<IPreProcessor>();
+        public PreProcessAttribute(params Type []preProcessorTypes)
         {
-            this.p = Activator.CreateInstance(preProcessorType) as IPreProcessor;
-            if (this.p == null)
-                throw new ArgumentException(String.Format("The type '{0}' does not implement interface IPreProcessor", preProcessorType.Name, "processorType"));
+            preProcessorTypes.ToList().ForEach(p =>
+            {
+                var processor = Activator.CreateInstance(p) as IPreProcessor;
+                if (processor == null)
+                    throw new ArgumentException(String.Format("The type '{0}' does not implement interface IPreProcessor", p.Name));
+                this.preProcessors.Add(processor);
+            });            
         }
 
-        public IPreProcessor Processor
+        public List<IPreProcessor> Processors
         {
-            get { return p; }
+            get { return preProcessors; }
         }
     }    
 }

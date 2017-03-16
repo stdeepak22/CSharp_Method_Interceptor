@@ -28,10 +28,8 @@ namespace MyInterceptor2
             return Name;
         }
 
-        [PreProcess(typeof(TimerProcess))]
-        [PreProcess(typeof(TracePreProcess))]
-        [PostProcess(typeof(TimerProcess))]
-        [PostProcess(typeof(TracePostProcess))]
+        [PreProcess(typeof(TimerProcess), typeof(TracePreProcess))]        
+        [PostProcess(typeof(TimerProcess), typeof(TracePostProcess))]        
         public override string ToString()
         {
             return string.Format("Hi {0}, your age is {1}", Name, Age);

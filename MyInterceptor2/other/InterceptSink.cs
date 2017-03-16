@@ -51,7 +51,12 @@ namespace MyInterceptor2.other
             PreProcessAttribute[] attrs
                 = (PreProcessAttribute[])msg.MethodBase.GetCustomAttributes(typeof(PreProcessAttribute), true);
             for (int i = 0; i < attrs.Length; i++)
-                attrs[i].Processor.Process(ref msg);
+            {
+                foreach (IPreProcessor processor in attrs[i].Processors)
+                {
+                    processor.Process(ref msg);
+                }                
+            }
         }
 
         private void PostProcess(IMethodCallMessage callMsg, ref IMethodReturnMessage rtnMsg)
@@ -59,8 +64,12 @@ namespace MyInterceptor2.other
             PostProcessAttribute[] attrs
                 = (PostProcessAttribute[])callMsg.MethodBase.GetCustomAttributes(typeof(PostProcessAttribute), true);
             for (int i = 0; i < attrs.Length; i++)
-                attrs[i].Processor.Process(callMsg, ref rtnMsg);
-
+            {
+                foreach (IPostProcessor processor in attrs[i].Processors)
+                {
+                    processor.Process(callMsg, ref rtnMsg);
+                }
+            }
         }
     }
 }

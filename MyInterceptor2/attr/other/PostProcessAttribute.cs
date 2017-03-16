@@ -9,17 +9,21 @@ namespace MyInterceptor2.attr.other
     [AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property, AllowMultiple = true)]
     public class PostProcessAttribute : Attribute
     {
-        private IPostProcessor p;
-        public PostProcessAttribute(Type postProcessorType)
+        private List<IPostProcessor> postProcessors = new List<IPostProcessor>();
+        public PostProcessAttribute(params Type[] postProcessorTypes)
         {
-            this.p = Activator.CreateInstance(postProcessorType) as IPostProcessor;
-            if (this.p == null)
-                throw new ArgumentException(String.Format("The type '{0}' does not implement interface IPostProcessor", postProcessorType.Name, "processorType"));
+            postProcessorTypes.ToList().ForEach(p =>
+            {
+                var processor = Activator.CreateInstance(p) as IPostProcessor;
+                if (processor == null)
+                    throw new ArgumentException(String.Format("The type '{0}' does not implement interface IPostProcessor", p.Name));
+                this.postProcessors.Add(processor);
+            });            
         }
 
-        public IPostProcessor Processor
+        public List<IPostProcessor> Processors
         {
-            get { return p; }
+            get { return postProcessors; }
         }
     }
 }
