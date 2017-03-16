@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyInterceptor", "MyInterceptor\MyInterceptor.csproj", "{F1C17210-3DBB-4C13-AF16-B4D39CBBECBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyInterceptor2", "MyInterceptor2\MyInterceptor2.csproj", "{EAC0694D-85D5-4E8A-99E3-9A6977CC4A08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1C17210-3DBB-4C13-AF16-B4D39CBBECBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C17210-3DBB-4C13-AF16-B4D39CBBECBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C17210-3DBB-4C13-AF16-B4D39CBBECBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C17210-3DBB-4C13-AF16-B4D39CBBECBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC0694D-85D5-4E8A-99E3-9A6977CC4A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC0694D-85D5-4E8A-99E3-9A6977CC4A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC0694D-85D5-4E8A-99E3-9A6977CC4A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC0694D-85D5-4E8A-99E3-9A6977CC4A08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
