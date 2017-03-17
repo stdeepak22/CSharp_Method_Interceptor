@@ -5,9 +5,9 @@ This will let you know how we can intercept the method in C# classes.
 We're using the approach of Remoting, and IMessageSink.  
 I've created some file for you to be used readymade.
 
-[InterceptSink.cs](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor/other/InterceptSink.cs) derived from IMessageSink
+[InterceptSink.cs](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor/other/InterceptSink.cs) derived from [IMessageSink](https://msdn.microsoft.com/en-us/library/system.runtime.remoting.messaging.imessagesink(v=vs.110).aspx)
 
-[InterceptProperty.cs](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor/other/InterceptProperty.cs) derived from IContextProperty and IContributeObjectSink
+[InterceptProperty.cs](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor/other/InterceptProperty.cs) derived from [IContextProperty](https://msdn.microsoft.com/en-us/library/system.runtime.remoting.contexts.icontextproperty(v=vs.110).aspx) and [IContributeObjectSink](https://msdn.microsoft.com/en-us/library/system.runtime.remoting.contexts.icontributeobjectsink(v=vs.110).aspx)
 
 and some interface, abstract class and attribute
 
@@ -61,7 +61,7 @@ Return:Hi Deepak, your age is 26
 
 
 **using the 2nd approach**
-We can have PreProcessor and PostProcessor separately 
+We can have [PreProcessor](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor2/attr/other/PrePostInterface.cs) and [PostProcessor](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor2/attr/other/PrePostInterface.cs) separately 
 
 Timer Processor - Pre and Post both [link](https://github.com/stdeepak22/CSharp_Method_Interceptor/blob/master/MyInterceptor2/attr/TimerProcess.cs)
 
